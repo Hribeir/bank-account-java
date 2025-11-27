@@ -3,19 +3,18 @@ package entities;
 public class BankAccount {
     private final int numberAccount;
     private  final String holder;
-    private final char depositOption;
-    private  double initialDeposit;
+    private  double balance;
 
-    public BankAccount(int numberAccount, String holder, char depositOption, double initialDeposit) {
+    public BankAccount(int numberAccount, String holder, double balance) {
         this.numberAccount = numberAccount;
         this.holder = holder;
-        this.depositOption = depositOption;
-        this.initialDeposit = initialDeposit;
+        this.balance = balance;
     }
-    public BankAccount(int numberAccount, String holder, char depositOption) {
+
+    public BankAccount(int numberAccount, String holder ) {
         this.numberAccount = numberAccount;
         this.holder = holder;
-        this.depositOption = depositOption;
+        this.balance = 0;
     }
 
 
@@ -27,14 +26,22 @@ public class BankAccount {
         return holder;
     }
 
-    public double getInitialDeposit() {
-        return initialDeposit;
+    public double getBalance() {
+        return balance;
+    }
+
+    public void depositValue(double balance) {
+         this.balance += balance;
+    }
+
+    public void withdrawValue(double withdrawValue) {
+        this.balance = balance - withdrawValue - 5;
     }
 
     public String toString() {
         return
-        "Account "  + getNumberAccount()
+        "Account " + getNumberAccount()
         + ", Holder: " + getHolder()
-        + ", Balance: $ " + getInitialDeposit();
+        + ", Balance: $ " + String.format("%.2f", getBalance());
     }
 }

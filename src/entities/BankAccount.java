@@ -5,6 +5,7 @@ public class BankAccount {
     private  final String holder;
     private  double balance;
 
+
     public BankAccount(int numberAccount, String holder, double balance) {
         this.numberAccount = numberAccount;
         this.holder = holder;
@@ -16,6 +17,9 @@ public class BankAccount {
         this.holder = holder;
         this.balance = 0;
     }
+
+
+
 
 
     public int getNumberAccount() {
@@ -30,6 +34,10 @@ public class BankAccount {
         return balance;
     }
 
+
+
+
+
     public void depositValue(double balance) {
          this.balance += balance;
     }
@@ -37,6 +45,9 @@ public class BankAccount {
     public void withdrawValue(double withdrawValue) {
         this.balance = balance - withdrawValue - 5;
     }
+
+
+
 
     public String toString() {
         return
